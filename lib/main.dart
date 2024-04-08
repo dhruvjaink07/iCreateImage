@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icreate_image/View/welcome_page.dart';
+import 'package:icreate_image/View/login_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => WelcomePage(),
+        '/login': (context) => LoginPage()
       },
       // home: ScreenRecorder()
       // home: VideoMaker()

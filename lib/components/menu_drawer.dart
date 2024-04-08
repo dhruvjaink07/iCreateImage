@@ -56,7 +56,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 1",
+                    "Invitation card",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 2",
+                    "Poster design",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
@@ -78,7 +78,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 3",
+                    "Thankyou card",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
@@ -90,7 +90,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 4",
+                    "Certificate design",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
@@ -102,7 +102,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 5",
+                    "Birthday greetings",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
@@ -114,7 +114,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 6",
+                    "Reminder card",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
@@ -126,7 +126,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 title: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    "Video 7",
+                    "Anniversary greetings",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),

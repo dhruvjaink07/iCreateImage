@@ -55,7 +55,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   child: Container(
                     margin: const EdgeInsets.only(right: 10),
                     height: 30,
-                    child: Image.asset("assets/images/user.png"),
+                    child: Image.asset("assets/user.png"),
                   ))
             ],
           ),

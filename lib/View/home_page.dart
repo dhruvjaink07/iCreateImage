@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icreate_image/Model/button_data.dart';
+import 'package:icreate_image/components/template_card.dart';
 import 'package:icreate_image/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -64,19 +65,35 @@ class _HomePageState extends State<HomePage> {
     'assets/images/vertical2.jpg',
     // Add more image paths as needed
   ];
+  late bool isPortrait;
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+
+    double gridViewHeight = screenHeight / 3; // Default height
+
+    if (screenHeight > 500) {
+      gridViewHeight = 3 *
+          screenHeight /
+          7; // Adjusted height if device height is more than 500
+    }
+    setState(() {});
     return Scaffold(
         body: SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.only(top: screenHeight / 18, left: 10, right: 10),
         child: Column(children: [
-          const Align(
+          Align(
             alignment: Alignment.center,
             child: Text(
-              "icreate",
+              "icreate : $isPortrait",
               style: TextStyle(
                   color: AppColors.primaryColor,
                   fontWeight: FontWeight.bold,
@@ -105,11 +122,17 @@ class _HomePageState extends State<HomePage> {
             height: 30,
           ),
           Container(
-            height: screenHeight / 3,
+            margin: const EdgeInsets.symmetric(horizontal: 20.0),
+            height: (isPortrait)
+                ? (screenHeight < 500)
+                    ? screenHeight / 1.8
+                    : screenHeight / 3
+                : screenHeight / 2,
             child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 3,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount:
+                    isPortrait ? 2 : 3, // Adjust based on orientation
+                childAspectRatio: isPortrait ? 3 : 4,
                 crossAxisSpacing: 10, // Add horizontal spacing between buttons
                 mainAxisSpacing: 2,
               ),
@@ -124,10 +147,14 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Container(
                       margin: const EdgeInsets.all(8),
-                      height: screenHeight * 0.01,
+                      height: isPortrait
+                          ? screenHeight * 0.05
+                          : screenHeight * 0.07,
+                      width: isPortrait ? screenWidth * 0.4 : screenWidth * 0.3,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(
+                            isPortrait ? screenHeight / 15 : screenWidth / 20),
                       ),
                       child: const Center(
                         child: Text(
@@ -147,12 +174,20 @@ class _HomePageState extends State<HomePage> {
                       widget.setCurrentPage("/videoList");
                     },
                     child: Container(
-                      margin: const EdgeInsets.all(8),
-                      height: screenHeight * 0.01,
+                      margin: EdgeInsets.all(8),
+                      height: isPortrait
+                          ? (screenHeight > 500)
+                              ? screenHeight * 0.07
+                              : screenHeight * 0.05
+                          : screenHeight * 0.9,
+                      // Adjust the height based on orientation
+                      width: isPortrait ? screenWidth * 0.4 : screenWidth * 0.3,
+                      // Adjust the width based on orientation
                       decoration: BoxDecoration(
                         gradient: buttons[index].gradient,
                         border: Border.all(color: Colors.transparent),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(
+                            isPortrait ? screenHeight / 15 : screenWidth / 20),
                       ),
                       child: Center(
                         child: Text(
@@ -306,6 +341,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+          TemplateCard()
         ]),
       ),
     ));
